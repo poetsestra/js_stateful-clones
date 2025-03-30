@@ -8,7 +8,7 @@
  */
 function transformStateWithClones(state, actions) {
   const states = [];
-  let newState = Object.assign({}, state);
+  const newState = Object.assign({}, state);
 
   for (const action of actions) {
     switch (action.type) {
@@ -29,8 +29,7 @@ function transformStateWithClones(state, actions) {
         break;
     }
 
-    states.push(newState);
-    newState = Object.assign({}, states[states.length - 1]);
+    states.push(Object.assign({}, newState));
   }
 
   return states;
